@@ -1,7 +1,7 @@
 // Add authentication check at the beginning
 async function checkAuth() {
     try {
-        const response = await fetch('/api/admin/check-auth');
+        const response = await fetch('https://techserve-backend.onrender.com/api/admin/check-auth');
         const data = await response.json();
         
         if (!data.authenticated) {
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 // Add logout functionality
 document.getElementById('logout-btn').addEventListener('click', async function() {
     try {
-        await fetch('/api/admin/logout', {
+        await fetch('https://techserve-backend.onrender.com/api/admin/logout', {
             method: 'POST'
         });
         window.location.href = 'admin-login.html';
@@ -124,7 +124,7 @@ async function updateOperatingSystem() {
     const is_active = document.getElementById('edit-os-active').checked;
     
     try {
-        const response = await fetch(`/api/admin/operating-systems/${osId}`, {
+        const response = await fetch(`https://techserve-backend.onrender.com/api/admin/operating-systems/${osId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -150,7 +150,7 @@ async function updateOSVersion() {
     const is_active = document.getElementById('edit-version-active').checked;
     
     try {
-        const response = await fetch(`/api/admin/os-versions/${versionId}`, {
+        const response = await fetch(`/https://techserve-backend.onrender.com/api/admin/os-versions/${versionId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -176,7 +176,7 @@ async function deleteOperatingSystem(osId, osName) {
     }
     
     try {
-        const response = await fetch(`/api/admin/operating-systems/${osId}`, {
+        const response = await fetch(`https://techserve-backend.onrender.com/api/admin/operating-systems/${osId}`, {
             method: 'DELETE'
         });
         
@@ -202,7 +202,7 @@ async function deleteOSVersion(versionId, versionName, osName) {
     }
     
     try {
-        const response = await fetch(`/api/admin/os-versions/${versionId}`, {
+        const response = await fetch(`https://techserve-backend.onrender.com/api/admin/os-versions/${versionId}`, {
             method: 'DELETE'
         });
         
@@ -281,7 +281,7 @@ function setupTabSwitching() {
 // Load orders from backend
 async function loadOrders() {
     try {
-        const response = await fetch('/api/admin/orders');
+        const response = await fetch('https://techserve-back.onrender.com/api/admin/orders');
         if (!response.ok) throw new Error('Failed to load orders');
         
         const orders = await response.json();
@@ -364,7 +364,7 @@ function getOrderOSText(order) {
 // Update order status
 async function updateOrderStatus(orderId, newStatus) {
     try {
-        const response = await fetch(`/api/admin/orders/${orderId}`, {
+        const response = await fetch(`https://techserve-backend.onrender.com/api/admin/orders/${orderId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -444,7 +444,7 @@ function viewOrderDetails(orderId) {
 // Load operating systems
 async function loadOperatingSystems() {
     try {
-        const response = await fetch('/api/admin/operating-systems');
+        const response = await fetch('https://techserve-backend.onrender.com/api/admin/operating-systems');
         if (!response.ok) throw new Error('Failed to load operating systems');
         
         const operatingSystems = await response.json();
@@ -508,7 +508,7 @@ async function addOperatingSystem() {
     }
     
     try {
-        const response = await fetch('/api/admin/operating-systems', {
+        const response = await fetch('https://techserve-backend.onrender.com/api/admin/operating-systems', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -547,7 +547,7 @@ async function addOSVersion() {
     }
     
     try {
-        const response = await fetch('/api/admin/os-versions', {
+        const response = await fetch('https://techserve-backend.onrender.com/api/admin/os-versions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -580,7 +580,7 @@ async function updatePricing() {
     const dualPrice = document.getElementById('dual-boot-price').value;
     
     try {
-        const response = await fetch('/api/admin/pricing', {
+        const response = await fetch('https://techserve-backend.onrender.com/api/admin/pricing', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -606,7 +606,7 @@ async function updateServices() {
     const officePrice = document.getElementById('office-suite-price').value;
     
     try {
-        const response = await fetch('/api/admin/pricing', {
+        const response = await fetch('https://techserve-backend.onrender.com/api/admin/pricing', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
