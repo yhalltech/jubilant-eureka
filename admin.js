@@ -1,7 +1,7 @@
 // Add authentication check at the beginning
 async function checkAuth() {
     try {
-        const response = await fetch('https://techserve-backend.onrender.com/api/admin/check-auth');
+        const response = await fetch('https://techserve-back.onrender.com/api/admin/check-auth');
         const data = await response.json();
         
         if (!data.authenticated) {
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 // Add logout functionality
 document.getElementById('logout-btn').addEventListener('click', async function() {
     try {
-        await fetch('https://techserve-backend.onrender.com/api/admin/logout', {
+        await fetch('https://techserve-back.onrender.com/api/admin/logout', {
             method: 'POST'
         });
         window.location.href = 'admin-login.html';
@@ -124,7 +124,7 @@ async function updateOperatingSystem() {
     const is_active = document.getElementById('edit-os-active').checked;
     
     try {
-        const response = await fetch(`https://techserve-backend.onrender.com/api/admin/operating-systems/${osId}`, {
+        const response = await fetch(`https://techserve-back.onrender.com/api/admin/operating-systems/${osId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -150,7 +150,7 @@ async function updateOSVersion() {
     const is_active = document.getElementById('edit-version-active').checked;
     
     try {
-        const response = await fetch(`/https://techserve-backend.onrender.com/api/admin/os-versions/${versionId}`, {
+        const response = await fetch(`/https://techserve-back.onrender.com/api/admin/os-versions/${versionId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -176,7 +176,7 @@ async function deleteOperatingSystem(osId, osName) {
     }
     
     try {
-        const response = await fetch(`https://techserve-backend.onrender.com/api/admin/operating-systems/${osId}`, {
+        const response = await fetch(`https://techserve-back.onrender.com/api/admin/operating-systems/${osId}`, {
             method: 'DELETE'
         });
         
@@ -202,7 +202,7 @@ async function deleteOSVersion(versionId, versionName, osName) {
     }
     
     try {
-        const response = await fetch(`https://techserve-backend.onrender.com/api/admin/os-versions/${versionId}`, {
+        const response = await fetch(`https://techserve-back.onrender.com/api/admin/os-versions/${versionId}`, {
             method: 'DELETE'
         });
         
